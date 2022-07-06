@@ -1,11 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.2.32519.379
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TRS", "TRS\TRS.csproj", "{13BC9824-844C-40FD-8FB4-99F280CA4272}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRSUnitTest", "TRSUnitTest\TRSUnitTest.csproj", "{8F83EBDF-82E0-42EF-8D1B-8F9A6B479308}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TRSUnitTest", "TRSUnitTest\TRSUnitTest.csproj", "{8F83EBDF-82E0-42EF-8D1B-8F9A6B479308}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3B4F7F9D-D8CB-4E22-A0AD-272281EF74D8}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Users\Kelvin\Documents\TRS .NET & SQL EXAM\Sales.sql = ..\..\..\Users\Kelvin\Documents\TRS .NET & SQL EXAM\Sales.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
