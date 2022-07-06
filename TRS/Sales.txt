@@ -1,0 +1,41 @@
+DECLARE @Sales TABLE(
+ [Name] varchar(1),	
+ Sales int,
+ DateJoined Date
+)
+
+INSERT INTO @Sales VALUES 
+('A',14114,'2019-01-22'),
+('B',41231,'2019-03-02'),
+('C',34674,'2017-11-17'),
+('D',61231,'2018-07-13'),
+('E',52856,'2019-05-26'),
+('F',61231,'2017-06-21'),
+('G',81728,'2017-05-05'),
+('H',34616,'2019-10-18'),
+('I',71926,'2018-02-11'),
+('J',52856,'2018-02-11'),
+('K',52856,'2018-02-11')
+
+;with cte as (
+select 
+*,
+DENSE_RANK() OVER (ORDER BY Sales DESC) as [Rank]
+from @Sales
+)
+
+SELECT 
+MAIN_SALES.Name,
+MAIN_SALES.Sales,
+MAIN_SALES.DateJoined,
+MAIN_SALES.[Rank],
+ISNULL(PREVIOUS_SALES.Sales - MAIN_SALES.Sales,0) DiffToPrevRank
+FROM cte MAIN_SALES
+LEFT JOIN cte PREVIOUS_SALES on PREVIOUS_SALES.[Rank] = MAIN_SALES.[Rank] - 1
+GROUP BY 
+MAIN_SALES.Name,
+MAIN_SALES.Sales,
+MAIN_SALES.DateJoined,
+MAIN_SALES.[Rank],
+PREVIOUS_SALES.Sales - MAIN_SALES.Sales
+order by MAIN_SALES.Sales desc
